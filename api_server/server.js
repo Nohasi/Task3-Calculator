@@ -14,12 +14,14 @@ app.post('/calculator', (req, res) => {
     let errorMessage = invalidRequest(req);
     if(errorMessage != null){
         res.status(406).json({
+            result: null,
             errorMessage: errorMessage
         });
         return;
     }
     res.status(200).json({
-        status: 'success'
+        result: calculate(req.body.number1, req.body.number2, req.body.operator),
+        errorMessage: errorMessage
     });
 });
 
