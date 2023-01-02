@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.Calc-row {
+  display: flex;
+  flex-direction: column;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -34,5 +39,15 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+  color: red;
+}
+@keyframes blinker {
+  50% {
+    opacity:0;
   }
 }
