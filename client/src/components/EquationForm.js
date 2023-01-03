@@ -4,10 +4,12 @@ import {sendEquation} from "../services/sendEquation";
 
 export const EquationForm = ({number1, number2, operator, setNumber1, setNumber2, setOperator, setErrorMessage, setResult}) => {
     
-    // const callModule = async(data) =>{
-    //     sendEquation(number1, number2, operator, setErrorMessage, setResult);
+    // let callModule = async (data) => {
+    //     data.preventDefault();
+    //     await sendEquation(number1, number2, operator, setErrorMessage, setResult);
     // }
 
+    // Function that makes the API request on submit
     let sending = async (data) => {
         data.preventDefault();
         try{
@@ -21,11 +23,12 @@ export const EquationForm = ({number1, number2, operator, setNumber1, setNumber2
                 })
             });
             let resJson = await response.json();
+            // If there is no error, display the result
             if (resJson.errorMessage == null){
                 setErrorMessage("");
                 setResult(resJson.result);
             }
-            else {
+            else { //else display the error
                 console.log('returned error?');
                 setErrorMessage(resJson.errorMessage);
                 setResult("");
@@ -39,15 +42,26 @@ export const EquationForm = ({number1, number2, operator, setNumber1, setNumber2
     return (
         <div style={{paddingBottom: '15px'}} className="Calc-row">
             <form onSubmit={sending}>
-                <input id="number1" type="text" value={number1} placeholder="Enter first number" onChange={(e)=> setNumber1(e.target.value)}/>
-                <DropdownList
-                value={operator}
-                onChange={e => setOperator(e)}
-                data={["+", "-", "*", "/"]}
-                filter={false}
-                />
-                <input id="number2" type="text" value={number2} placeholder="Enter second number" onChange={(e)=> setNumber2(e.target.value)}/>
-                <button type="submit">Calculate</button>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+                    <div>
+                        <input id="number1" type="text" value={number1} placeholder="Enter first number" onChange={(e)=> setNumber1(e.target.value)}/>
+                    </div>
+                    {/* DropdownList to select the operator */}
+                    <div>
+                        <DropdownList
+                        value={operator}
+                        onChange={e => setOperator(e)}
+                        data={["+", "-", "*", "/"]}
+                        filter={false}
+                        />
+                    </div>
+                    <div>
+                        <input id="number2" type="text" value={number2} placeholder="Enter second number" onChange={(e)=> setNumber2(e.target.value)}/>
+                    </div>
+                    <div>
+                        <button type="submit">Calculate</button>
+                    </div>
+                </div>
             </form>
         </div>
     );

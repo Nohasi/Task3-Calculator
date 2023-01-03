@@ -12,11 +12,12 @@ const sendEquation = (number1, number2, operator, setErrorMessage, setResult) =>
                 })
             });
             let resJson = await response.json();
+            // If there is no error, display the result
             if (resJson.error == null){
                 setErrorMessage("");
                 setResult(resJson.result);
             }
-            else {
+            else { //else display the error
                 setErrorMessage(resJson.error);
                 setResult("");
             }

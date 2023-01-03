@@ -1,9 +1,9 @@
 import setDisplayOutput from "../services/setDisplayOutput";
 
 export const ResultDisplay = ({result, errorMessage}) => {
-    console.log(`result: ${result}\nerrorMessage: ${errorMessage}`);
+    // function call to determine whether to display the result or error message
     let [outputString, className] = setDisplayOutput(result, errorMessage);
-    console.log(`outputString: ${outputString}\nclassName: ${className}`);
+    
     return (
         <div>
             <h2>Result = </h2>
