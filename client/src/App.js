@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import { CalculatorPage } from "./components/CalculatorPage";
+import "react-widgets/styles.css";
 
 function App() {
   return (

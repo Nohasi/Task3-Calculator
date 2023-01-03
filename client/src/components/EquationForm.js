@@ -1,6 +1,7 @@
 // import Combobox from "react-widgets/Combobox"
 import DropdownList from "react-widgets/DropdownList"
 import {sendEquation} from "../services/sendEquation";
+import NumberPicker from "react-widgets/NumberPicker"
 
 export const EquationForm = ({number1, number2, operator, setNumber1, setNumber2, setOperator, setErrorMessage, setResult}) => {
     
@@ -42,9 +43,13 @@ export const EquationForm = ({number1, number2, operator, setNumber1, setNumber2
     return (
         <div style={{paddingBottom: '15px'}} className="Calc-row">
             <form onSubmit={sending}>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gridGap: 0 }}>
                     <div>
-                        <input id="number1" type="text" value={number1} placeholder="Enter first number" onChange={(e)=> setNumber1(e.target.value)}/>
+                        <NumberPicker 
+                        value={number1}
+                        onChange={e => {setNumber1(e)}}
+                        />
+                        {/* <input id="number1" type="text" value={number1} placeholder="Enter first number" onChange={(e)=> setNumber1(e.target.value)}/> */}
                     </div>
                     {/* DropdownList to select the operator */}
                     <div>
@@ -56,7 +61,11 @@ export const EquationForm = ({number1, number2, operator, setNumber1, setNumber2
                         />
                     </div>
                     <div>
-                        <input id="number2" type="text" value={number2} placeholder="Enter second number" onChange={(e)=> setNumber2(e.target.value)}/>
+                        {/* <input id="number2" type="text" value={number2} placeholder="Enter second number" onChange={(e)=> setNumber2(e.target.value)}/> */}
+                        <NumberPicker 
+                        value={number2}
+                        onChange={e => {setNumber2(e)}}
+                        />
                     </div>
                     <div>
                         <button type="submit">Calculate</button>
