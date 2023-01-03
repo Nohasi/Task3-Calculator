@@ -19,12 +19,12 @@ export const CalculatorPage = () => {
                         number1 = {number1}
                         number2  = {number2}
                         operator = {operator}
-                        errorMessage = {errorMessage}
     
                         setNumber1 = {setNumber1}
                         setNumber2 = {setNumber2}
                         setOperator = {setOperator}
                         setErrorMessage = {setErrorMessage}
+                        setResult = {setResult}
                     >
                     </EquationForm>
                 </div>

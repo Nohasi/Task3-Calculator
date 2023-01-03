@@ -6,3 +6,5 @@ const setDisplayOutput = (result, errorMessage) => {
         return [errorMessage, 'blink'];
     }
 }
+
+module.exports = setDisplayOutput;

@@ -5,7 +5,7 @@ import { CalculatorPage } from "./components/CalculatorPage";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <BrowserRouter>
         <Routes>
           {/* Routing automatically redirects user to the "/calculator" path */}

@@ -11,7 +11,6 @@ const sendEquation = (number1, number2, operator, setErrorMessage, setResult) =>
                     operator: operator
                 })
             });
-            
             let resJson = await response.json();
             if (resJson.error == null){
                 setErrorMessage("");
