@@ -10,10 +10,9 @@ app.use(express.json());
 
 app.post('/calculator', (req, res) => {
     // If no error function returns null, else it returns an error string
-    console.log(req.body);
     let errorMessage = invalidRequest(req);
     if(errorMessage != null){
-        res.status(406).json({
+        res.status(200).json({
             result: null,
             errorMessage: errorMessage
         });

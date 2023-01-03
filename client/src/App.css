@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.Calc-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+  color: red;
+}
+@keyframes blinker {
+  50% {
+    opacity:0;
+  }
+}
