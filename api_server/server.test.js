@@ -13,6 +13,17 @@ describe('POST request', () => {
             })
         expect(res.body.result).toEqual(25);
     });
+
+    it('should return a positive number when multiplying two negatives', async () => {
+        const res = await request(app)
+        .post('/calculator')
+        .send({
+            number1: -1.5,
+            number2: -3,
+            operator: '*'
+        })
+        expect(res.body.result).toEqual(4.5);
+    });
 });
 
 afterAll(done => {
