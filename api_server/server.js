@@ -12,7 +12,7 @@ app.post('/calculator', (req, res) => {
     // If no error function returns null, else it returns an error string
     let errorMessage = invalidRequest(req);
     if(errorMessage != null){
-        res.status(200).json({
+        res.status(406).json({
             result: null,
             errorMessage: errorMessage
         });
