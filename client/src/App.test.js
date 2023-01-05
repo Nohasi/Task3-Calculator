@@ -9,15 +9,15 @@ test('renders calculate button correctly', () => {
 });
 
 test('checks if result is returned correctly after submitting form', async () => {
-  nock('http://localhost:4090')
-    .post('/calculator', {
-      number1: 15,
-      number2: 10,
-      operator: '+'
-    })
-    .reply(200);
+  render(<App />);
 
-    render(<App />);
+  nock('http://localhost:4090')
+  .post('/calculator', {
+    number1: 15,
+    number2: 10,
+    operator: '+'
+  })
+  .reply(200);
 
     await waitFor(() => {
       expect(
