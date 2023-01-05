@@ -4,7 +4,7 @@ const setDisplayOutput = (result, errorMessage) => {
         return [result, ""]
     }
     else { // if an error exists, then no valid result was returned
-        return [errorMessage, 'blink'];
+        return [`Error: ${errorMessage}`, 'blink'];
     }
 }
 
